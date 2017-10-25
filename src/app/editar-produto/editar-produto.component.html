@@ -1,0 +1,25 @@
+<p>
+  editar-produto works!
+</p>
+<!--Bind de propriedade de mão uníca, isso quer dizer que os valores trafegam do componente para a visão e 
+    não ao inverso, isso quer dizer que se alterar o valor no input o valor não eh alterado na variavel no
+    componente, para alterar de ser usado um two way bind(bind de duas vias)
+<input type="text" value="{{produto.id}}"><br>
+<input type="text" value="{{produto.nome}}"><br><br>
+-->
+
+<!--Two way data bind-->
+<!--Requisito do angular, toda vez que utiliza uma diretiva ngModel, todos os campos de seu formulario dentro
+    do form deve possuir o NAME-->
+<form (submit)="salvar()">
+  <input name="id" type="text" [(ngModel)]="produto.id"> <!--Combinação de Bind de propriedade"[]" e de eventos "()" para realizar o two way data bind com ngModel-->
+  <input required name="nome" type="text" [(ngModel)]="produto.nome">
+  <input type="submit" value="Salvar">
+</form>
+{{ debug }}
+
+<!--
+  Outra maneira de colocar evento no botão, as duas formas são iguais, porem para uma coerencia, 
+  deve se decidir utilizar apenas uma em todo o projeto.
+<button on-click="salvar()" >Salvar</button>
+-->

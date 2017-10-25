@@ -1,0 +1,12 @@
+<div *ngIf="produtos.length > 0">
+  <table>
+    <tr *ngFor="let produto of produtos">
+      <td>{{ produto.id }}</td>
+      <td>{{ produto.nome }}</td>
+    </tr>
+  </table>
+  <app-lista-produtos [produtosNoComponenteListaProdutos]="produtos"></app-lista-produtos>
+</div>
+<div *ngIf="produtos.length <= 0">
+  Você não possui produtos cadastrados.
+</div>
