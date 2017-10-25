@@ -13,7 +13,15 @@
     do form deve possuir o NAME-->
 <form (submit)="salvar()">
   <input name="id" type="text" [(ngModel)]="produto.id"> <!--Combinação de Bind de propriedade"[]" e de eventos "()" para realizar o two way data bind com ngModel-->
-  <input required name="nome" type="text" [(ngModel)]="produto.nome">
+  <input name="nome" type="text" [(ngModel)]="produto.nome" [class.alerta]="produto.nome.length > 15" upperCase required><br>
+  <div *ngIf = "produto.nome.length > 15">Evite nomes com mais de 15 caracteres.</div>
+
+  <!--
+    Diretiva de atributo(Não boa pratica, boa pratica utilizar o ngClass)
+  <input name="nome" type="text" [(ngModel)]="produto.nome" [style.backgroundColor]="produto.nome.length > 15 ? '#CC0000' : '#FFFFFF'" required><br>
+  <div [style.display]="produto.nome.length > 15 ? 'block' : 'none'">Evite nomes com mais de 15 caracteres.</div>
+  -->
+  <!-- Diretiva estrutural -->  
   <input type="submit" value="Salvar">
 </form>
 {{ debug }}

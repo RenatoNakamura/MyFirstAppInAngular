@@ -6,6 +6,7 @@ import { ListaProdutosComponent } from './lista-produtos/lista-produtos.componen
 import { ProdutosComponent } from './produtos/produtos.component';
 import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
 import { FormsModule } from '@angular/forms'; //Importação necessária para funcionar o ngModel
+import { UppercaseDirective } from './uppercase.directive';
 
 const appRoutes : Routes = [
   { path: 'produtos', component: ProdutosComponent },
@@ -17,7 +18,8 @@ const appRoutes : Routes = [
     AppComponent,
     ListaProdutosComponent,
     ProdutosComponent,
-    EditarProdutoComponent
+    EditarProdutoComponent,
+    UppercaseDirective
   ],
   imports: [
     BrowserModule,
