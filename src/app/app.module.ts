@@ -7,6 +7,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
 import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
 import { FormsModule } from '@angular/forms'; //Importação necessária para funcionar o ngModel
 import { UppercaseDirective } from './uppercase.directive';
+import { ProdutoService } from './produto.service';
 
 const appRoutes : Routes = [
   { path: 'produtos', component: ProdutosComponent },
@@ -26,7 +27,12 @@ const appRoutes : Routes = [
     FormsModule, //Importação necessária para funcionar o ngModel
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  /*
+  outra maneira [{provider: ProdutoService, useClass: ProdutoService}]
+  usado para quando quiser utilizar implementação de interface, onde a interface
+  vai em "provider" e a classe que implementa essa interface seria em "useClass"
+  */
+  providers: [ProdutoService],//serviços 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
